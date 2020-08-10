@@ -94,6 +94,22 @@ class Controller {
 
         try {
             const foodData = await Food.findByPk(paramId)
+
+            const food = await Food.destroy({
+                where: {
+                    id: paramId
+                }
+            })
+
+            if ( result === 1 ){
+                res.status(200).json(foodData)
+            }
+            else {
+                res.status(400).json({Error : "data not found"})
+            }
+        }
+        catch {
+            res.status(500).json({error: "internal server error"})
         }
     }
 }
