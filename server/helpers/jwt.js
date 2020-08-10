@@ -6,8 +6,8 @@ const signToken = (payload) => {
     return token
 }
 
-const verifyToken = (token) => {
-    const payload = jwt.verify(token, 'rahasiadong')
+const verifyToken = (access_token) => {
+    const payload = jwt.verify(access_token, 'rahasiadong')
 
     return payload
 }
